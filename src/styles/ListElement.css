@@ -1,0 +1,23 @@
+.ListElement {
+    margin: 5px 15px 5px;
+    padding: 5px 10px 0 0;
+    display: flex;
+    min-width: 20vh;;
+}
+
+.info {
+    margin: 5px;
+}
+
+.deleteBtn {
+    height: 100%;
+    width:30px;
+}
+
+.cross {
+    background: no-repeat url(https://ssl.gstatic.com/mail/sprites/general-76906fbc82f79822625038e272fa3893.png) 4px -144px;
+    width: 20px;
+    height: 20px;
+    margin: 20px 0;
+    opacity: 0.2;
+}
