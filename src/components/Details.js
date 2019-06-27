@@ -8,7 +8,8 @@ class Details extends React.Component {
 
         this.state = {
             edit: false,
-            changed: false
+            changed: false,
+            modal: false
         };
 
     }
@@ -45,16 +46,49 @@ class Details extends React.Component {
         });
     }
 
-    render() {
-        const { gender, date, fav, onClick, id, _setFav } = this.props;
+    _volver() {
+        const { edit, name, films, mass, height} = this.state;
 
-        const { edit, name, films, mass, height } = this.state;
+        if (edit) {
+            if (this.props.name != name || this.props.height != height || this.props.films != films || this.props.mass != mass) {
+                //si hay cambios sin guardar:
+                this.setState({modal: true});
+            }
+        } else {
+            this.props.onClick(0);
+        }
+    }
+
+    render() {
+        const { gender, date, fav, id, _setFav } = this.props;
+
+        const { edit, name, films, mass, height, modal } = this.state;
 
         const styleStar = { backgroundPositionY: fav ? -837 : -420 };
 
         return(
             <div className="Details">
-                <div className="Details-return" onClick={() => onClick(0)}>{'< volver al listado'}</div>
+            {modal &&
+                <div className="modalBg">
+                    <div className="Modal">
+                        <h3>Seguro que queres volver?</h3>
+                        <h4>Dejaste cambios sin guardar</h4>
+                        <div className="botones">
+                            <div 
+                            className="Button dark"
+                            onClick={() => {this.setState({modal: false})}}
+                            >No
+                            </div>
+                            <div 
+                            className="Button"
+                            style={ {borderColor: '#1b1b1b'}}
+                            onClick={() => this.props.onClick(0)}
+                            >Volver</div>
+                        </div>
+                    </div>
+                </div>
+            }
+                <div className="Details-return" onClick={() => this._volver()}>{'< volver al listado'}</div>
                 <div className="Details-content">
                     <div className="Details-name">
                         <input
@@ -107,11 +141,15 @@ class Details extends React.Component {
                     className="Button"
                     onClick={() => {
                             if (edit && (this.props.name != name || this.props.height != height || this.props.films != films || this.props.mass != mass)) {
-                                    //PREGUNTAR SI GUARDAR!!
-                                    //guardar
-                            } else {
-                                this.setState({edit: !edit});
+                                this.props._saveChanges({
+                                    name: name,
+                                    height: height,
+                                    films: films,
+                                    mass: mass,
+                                    id: id
+                                });
                             }
+                            this.setState({edit: !edit});
                         }}
                 >{edit ? 'Guardar cambios' : 'Editar'}</div>
             </div>

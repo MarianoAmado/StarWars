@@ -87,6 +87,7 @@ class List extends React.Component {
                         onClick={this._enClick}
                         id={this.state.selected}
                         _setFav={this.props._setFav}
+                        _saveChanges={this.props._saveChanges}
                     />
                 );
             }
