@@ -17,20 +17,44 @@
     font-size: 25px;
     text-align: left;
     margin: 40px 0; 
-
 }
 
 .Details-name {
+    width: 100%;
     font-size: 40px;
-    margin-bottom: 20px;
+}
+
+.Details-name > input {
+    float: left;
+    width: 70%;
+}
+
+.Details-info input {
+    max-width: 2.4em;
 }
 
 .star {
     background: no-repeat url(https://ssl.gstatic.com/mail/sprites/general-76906fbc82f79822625038e272fa3893.png) 3px -420px;
     width: 20px;
     height: 20px;
-    opacity: 0.5;
-    background-color: aliceblue;
     float: right;
-    background-position-x: 
+    margin-right: 5%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.gender {
+    margin-top: 15px;
+}
+
+input {
+    font-size: inherit;
+    border: none;
+    background: none;
+    border-bottom: solid white 3px; 
+}
+
+input:disabled {
+    color: inherit;
+    border: none;
 }

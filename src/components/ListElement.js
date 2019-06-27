@@ -4,17 +4,19 @@ import '../styles/ListElement.css';
 
 const ListElement = props => {
 
-    const { name, gender, date, fav,selected, onClick} = props;
-    
+    const { name, gender, date, fav, selected, onClick, _remove} = props;
+
+    const styleStar = { backgroundPositionY: fav ? -837 : -420 };
     
     return (
-        <div className="ListElement" onClick={() => onClick(selected)}>
+        <div className="ListElement">
             <div className="deleteBtn">
-                <div className="cross"></div>
+                <div className="cross" onClick={() => _remove(selected)}></div>
             </div>
-            <div className="info">
-                <b>{name} {fav ? 'Y' : 'N'}</b><br/>
-                {gender} | Birth date: {date}
+            <div className="info" onClick={() => onClick(selected)}>
+                <b>{name}</b>
+                <div className="listStar" style={styleStar}></div><br/>
+                {gender != 'n/a' ? gender.charAt(0).toUpperCase() + gender.slice(1) + ' | ': ''}Birth date: {date}
             </div>
         </div>
     );

@@ -10,11 +10,28 @@
 }
 
 .List {
-    font-size: 20px;
-    columns: 2;
+    font-size: 25px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     overflow: hidden;
+    width: 90%;
+}
+
+.Pages {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
+}
+
+.anterior {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.siguiente {
+    margin-left: 10px;
+    cursor: pointer;
 }

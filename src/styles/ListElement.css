@@ -1,12 +1,14 @@
 .ListElement {
-    margin: 5px 15px 5px;
     padding: 5px 10px 0 0;
     display: flex;
-    min-width: 20vh;;
+    width: 50%;
+    cursor: pointer;
 }
 
 .info {
     margin: 5px;
+    padding: 0 10px;
+    width: 100%;
 }
 
 .deleteBtn {
@@ -19,5 +21,14 @@
     width: 20px;
     height: 20px;
     margin: 20px 0;
-    opacity: 0.2;
+    opacity: 0.3;
+}
+
+.listStar {
+    background: no-repeat url(https://ssl.gstatic.com/mail/sprites/general-76906fbc82f79822625038e272fa3893.png) 3px -420px;
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin-top: 7px;
+    margin-right: 20px;
 }
